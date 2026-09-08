@@ -12,7 +12,7 @@
     <a class="brand" href="/">pinqloq<span class="brand-dot">.</span></a>
     <span class="divider"></span>
     <span class="lab-label">
-      <svg class="ruby-gem" width="18" height="18" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <svg class="ruby-gem" width="16" height="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <polygon points="16,2 29,11 24,30 8,30 3,11" fill="#cc342d" />
         <polygon points="16,2 29,11 16,15" fill="#e0453e" />
         <polygon points="16,2 3,11 16,15" fill="#b91f1f" />
@@ -27,16 +27,28 @@
 
   <main>
     <section class="intro">
-      <div class="eyebrow">SDK TEST LAB <span>· 01 / SINATRA</span></div>
-      <h1>Send a request.<br /><span>Trace the log.</span></h1>
-      <p>
-        A real SDK and real delivery. Test HTTP events, manual logs, and redaction from the
-        pinqloq Ruby SDK, wired into a Sinatra app through the Rack middleware.
-      </p>
+      <div class="intro-copy">
+        <div class="eyebrow">SDK TEST LAB <span>· 01 / SINATRA</span></div>
+        <h1>Send a request.<br /><span>Trace the log.</span></h1>
+        <p>
+          A real SDK and real delivery. Test HTTP events, manual logs, and redaction from the
+          pinqloq Ruby SDK, wired into a Sinatra app through the Rack middleware.
+        </p>
+      </div>
+      <div class="flow" aria-hidden="true">
+        <span>APPLICATION</span>
+        <b>logger.enqueue</b>
+        <i>↓</i>
+        <span>IN-MEMORY QUEUE</span>
+        <b>200 entries <em>or</em> 2 seconds</b>
+        <i>↓</i>
+        <span>INGEST API</span>
+        <b>logs: [ … ] <em>→ RabbitMQ → Panel</em></b>
+      </div>
     </section>
 
     <div class="config-strip">
-      <span><i class="dot"></i> <span id="config-state">Checking configuration…</span></span>
+      <span><i class="dot" id="config-dot"></i> <span id="config-state">Checking configuration…</span></span>
       <span>HTTP <b id="http-collection">—</b></span>
       <span>MANUAL <b id="manual-collection">—</b></span>
     </div>
@@ -74,7 +86,7 @@
               <option value="error">Error</option>
               <option value="fatal">Fatal</option>
             </select>
-            <button id="manual" class="secondary">Send event <span>↗</span></button>
+            <button id="manual" class="primary">Send event <span>↗</span></button>
           </div>
         </article>
 
@@ -97,7 +109,12 @@
         <div class="results-body">
           <pre id="output">Choose a scenario to begin.</pre>
         </div>
-        <p class="panel-note">API acceptance does not guarantee panel visibility. Batches send every ~2s — allow a short delay, then verify in the <a href="https://pinqloq-panel.pinqponq.io" target="_blank" rel="noreferrer">log panel</a>.</p>
+        <p class="panel-note"><span>↗</span> API acceptance does not guarantee panel visibility. Batches send every ~2s — allow a short delay, then verify in the <a href="https://pinqloq-panel.pinqponq.io" target="_blank" rel="noreferrer">log panel</a>.</p>
+
+        <div class="history">
+          <h3>Recent tests</h3>
+          <div id="history"><span class="empty-history">No tests in this session yet.</span></div>
+        </div>
       </section>
     </div>
 
