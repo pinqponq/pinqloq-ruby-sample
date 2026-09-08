@@ -1,0 +1,141 @@
+:root {
+  color-scheme: light;
+  --bg: #f7f7f4;
+  --panel: #ffffff;
+  --border: #e4e4df;
+  --ink: #1c1c1a;
+  --muted: #8b8b83;
+  --accent: #33421f;
+  --accent-ink: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 24px 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.dot {
+  color: var(--accent);
+}
+
+.divider {
+  color: var(--border);
+}
+
+.subtitle {
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 32px 96px;
+}
+
+.eyebrow {
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+h1 {
+  font-size: 2.6rem;
+  line-height: 1.15;
+  margin: 0 0 20px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.lead {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 52ch;
+}
+
+.scenarios,
+.result {
+  margin-top: 48px;
+  padding: 28px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.scenarios h2,
+.result h2 {
+  margin: 0 0 8px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.buttons button {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.buttons button span {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.buttons button:hover {
+  border-color: var(--accent);
+}
+
+.result pre {
+  background: #0f130a;
+  color: #d9e6c9;
+  padding: 18px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.8rem;
+  padding: 32px;
+}

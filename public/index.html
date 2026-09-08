@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>pinqloq · Ruby Lab</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <span class="brand">pinqloq<span class="dot">.</span></span>
+    <span class="divider">|</span>
+    <span class="subtitle">RUBY LAB</span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">SDK TEST LAB · 01 / SINATRA</p>
+      <h1>Send a request.<br /><span class="muted">Trace the response.</span></h1>
+      <p class="lead">
+        A Sinatra sample ready for the pinqloq Ruby SDK. These HTTP scenarios exercise the
+        app before request logging is wired in.
+      </p>
+    </section>
+
+    <section class="scenarios">
+      <h2>HTTP request</h2>
+      <p>Choose a response status and inspect what the server returns.</p>
+      <div class="buttons" id="status-buttons">
+        <button data-status="200">200<span>OK</span></button>
+        <button data-status="400">400<span>Bad request</span></button>
+        <button data-status="401">401<span>Unauthorized</span></button>
+        <button data-status="404">404<span>Not found</span></button>
+        <button data-status="500">500<span>Server error</span></button>
+      </div>
+    </section>
+
+    <section class="result">
+      <h2>Last response</h2>
+      <pre id="output">Choose a scenario to begin.</pre>
+    </section>
+  </main>
+
+  <footer>pinqloq / developer samples · Sinatra · Ruby 3.3</footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
