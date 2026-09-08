@@ -3,45 +3,74 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
   <title>pinqloq · Ruby Lab</title>
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
-  <header>
-    <span class="brand">pinqloq<span class="dot">.</span></span>
-    <span class="divider">|</span>
-    <span class="subtitle">RUBY LAB</span>
+  <header class="topbar">
+    <a class="brand" href="/">pinqloq<span class="brand-dot">.</span></a>
+    <span class="divider"></span>
+    <span class="lab-label">
+      <svg class="ruby-gem" width="18" height="18" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="16,2 29,11 24,30 8,30 3,11" fill="#cc342d" />
+        <polygon points="16,2 29,11 16,15" fill="#e0453e" />
+        <polygon points="16,2 3,11 16,15" fill="#b91f1f" />
+        <polygon points="3,11 16,15 8,30" fill="#9e1b1b" />
+        <polygon points="29,11 16,15 24,30" fill="#a91f1f" />
+        <polygon points="16,15 8,30 24,30" fill="#cc342d" />
+      </svg>
+      RUBY LAB
+    </span>
   </header>
 
   <main>
-    <section class="hero">
-      <p class="eyebrow">SDK TEST LAB · 01 / SINATRA</p>
-      <h1>Send a request.<br /><span class="muted">Trace the response.</span></h1>
-      <p class="lead">
+    <section class="intro">
+      <div class="eyebrow">SDK TEST LAB <span>· 01 / SINATRA</span></div>
+      <h1>Send a request.<br /><span>Trace the response.</span></h1>
+      <p>
         A Sinatra sample ready for the pinqloq Ruby SDK. These HTTP scenarios exercise the
         app before request logging is wired in.
       </p>
     </section>
 
-    <section class="scenarios">
-      <h2>HTTP request</h2>
-      <p>Choose a response status and inspect what the server returns.</p>
-      <div class="buttons" id="status-buttons">
-        <button data-status="200">200<span>OK</span></button>
-        <button data-status="400">400<span>Bad request</span></button>
-        <button data-status="401">401<span>Unauthorized</span></button>
-        <button data-status="404">404<span>Not found</span></button>
-        <button data-status="500">500<span>Server error</span></button>
-      </div>
-    </section>
+    <div class="workspace">
+      <section class="scenarios">
+        <div class="section-heading">
+          <h2>Scenarios</h2>
+          <span>Synthetic data only</span>
+        </div>
+        <article class="card">
+          <div class="card-number">01</div>
+          <h3>HTTP request</h3>
+          <p>Choose a response status and inspect what the server returns.</p>
+          <div class="status-buttons" id="status-buttons">
+            <button data-status="200" class="success">200 <small>OK</small></button>
+            <button data-status="400">400 <small>Bad request</small></button>
+            <button data-status="401">401 <small>Unauthorized</small></button>
+            <button data-status="404">404 <small>Not found</small></button>
+            <button data-status="500" class="error">500 <small>Server error</small></button>
+          </div>
+        </article>
+      </section>
 
-    <section class="result">
-      <h2>Last response</h2>
-      <pre id="output">Choose a scenario to begin.</pre>
-    </section>
+      <section class="results">
+        <div class="section-heading">
+          <h2>Last response</h2>
+          <span id="run-state" class="status-pill">READY</span>
+        </div>
+        <div class="results-body">
+          <pre id="output">Choose a scenario to begin.</pre>
+        </div>
+        <p class="panel-note">pinqloq SDK integration is a follow-up step — this lab only exercises the raw Sinatra routes for now.</p>
+      </section>
+    </div>
+
+    <footer>
+      <span>pinqloq / developer samples</span>
+      <span>Sinatra · Ruby 3.3</span>
+    </footer>
   </main>
-
-  <footer>pinqloq / developer samples · Sinatra · Ruby 3.3</footer>
 
   <script src="/app.js"></script>
 </body>

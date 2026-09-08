@@ -1,5 +1,6 @@
 const buttons = document.querySelectorAll("#status-buttons button");
 const output = document.getElementById("output");
+const runState = document.getElementById("run-state");
 
 buttons.forEach(button => {
   button.addEventListener("click", async () => {
@@ -14,5 +15,7 @@ buttons.forEach(button => {
       null,
       2
     );
+
+    runState.textContent = `${response.status}`;
   });
 });
