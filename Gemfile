@@ -8,7 +8,7 @@ gem "rackup", "~> 2.1"
 gem "dotenv", "~> 3.1"
 gem "pinqloq",
     git: "https://github.com/pinqponq/pinqloq-backend.git",
-    ref: "085336d6165c0aab7f84d86b78a3f80c06d60851",
+    ref: "ce9eb27817a1425b739b4852d18a314a7736addb",
     glob: "sdk/pinqloq-ruby/*.gemspec"
 
 group :test do
