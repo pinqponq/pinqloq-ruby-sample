@@ -26,4 +26,19 @@ RSpec.describe PinqloqSample::App do
     expect(last_response.status).to eq(200)
     expect(last_response.body).to include("pinqloq")
   end
+
+  it "reports whether pinqloq is configured" do
+    get "/api/config"
+
+    expect(last_response.status).to eq(200)
+    expect(JSON.parse(last_response.body)).to include("configured")
+  end
+
+  it "rejects a manual event when pinqloq is not configured" do
+    skip "pinqloq is configured in this environment" if PinqloqSample::App::PINQLOQ
+
+    post "/demo/manual/information"
+
+    expect(last_response.status).to eq(503)
+  end
 end

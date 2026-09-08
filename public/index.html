@@ -22,17 +22,24 @@
       </svg>
       RUBY LAB
     </span>
+    <span class="connection" id="connection">Checking…</span>
   </header>
 
   <main>
     <section class="intro">
       <div class="eyebrow">SDK TEST LAB <span>· 01 / SINATRA</span></div>
-      <h1>Send a request.<br /><span>Trace the response.</span></h1>
+      <h1>Send a request.<br /><span>Trace the log.</span></h1>
       <p>
-        A Sinatra sample ready for the pinqloq Ruby SDK. These HTTP scenarios exercise the
-        app before request logging is wired in.
+        A real SDK and real delivery. Test HTTP events, manual logs, and redaction from the
+        pinqloq Ruby SDK, wired into a Sinatra app through the Rack middleware.
       </p>
     </section>
+
+    <div class="config-strip">
+      <span><i class="dot"></i> <span id="config-state">Checking configuration…</span></span>
+      <span>HTTP <b id="http-collection">—</b></span>
+      <span>MANUAL <b id="manual-collection">—</b></span>
+    </div>
 
     <div class="workspace">
       <section class="scenarios">
@@ -40,16 +47,44 @@
           <h2>Scenarios</h2>
           <span>Synthetic data only</span>
         </div>
+
         <article class="card">
           <div class="card-number">01</div>
           <h3>HTTP request</h3>
-          <p>Choose a response status and inspect what the server returns.</p>
+          <p>Choose a response status and let the middleware capture the request automatically.</p>
           <div class="status-buttons" id="status-buttons">
             <button data-status="200" class="success">200 <small>OK</small></button>
             <button data-status="400">400 <small>Bad request</small></button>
             <button data-status="401">401 <small>Unauthorized</small></button>
             <button data-status="404">404 <small>Not found</small></button>
             <button data-status="500" class="error">500 <small>Server error</small></button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-number">02</div>
+          <h3>Manual event</h3>
+          <p>Create a backend event and watch it move through the queue and delivery pipeline.</p>
+          <div class="manual-row">
+            <label class="sr-only" for="level">Log level</label>
+            <select id="level">
+              <option value="debug">Debug</option>
+              <option value="information" selected>Information</option>
+              <option value="warning">Warning</option>
+              <option value="error">Error</option>
+              <option value="fatal">Fatal</option>
+            </select>
+            <button id="manual" class="secondary">Send event <span>↗</span></button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-number">03</div>
+          <h3>Sensitive data redaction</h3>
+          <p>Test with synthetic <code>password</code> and <code>taxNumber</code> fields, then inspect the result in the log panel.</p>
+          <div class="redaction-buttons">
+            <button data-redaction="fields">Redact fields</button>
+            <button data-redaction="endpoint">Redact entire endpoint</button>
           </div>
         </article>
       </section>
@@ -62,7 +97,7 @@
         <div class="results-body">
           <pre id="output">Choose a scenario to begin.</pre>
         </div>
-        <p class="panel-note">pinqloq SDK integration is a follow-up step — this lab only exercises the raw Sinatra routes for now.</p>
+        <p class="panel-note">API acceptance does not guarantee panel visibility. Batches send every ~2s — allow a short delay, then verify in the <a href="https://pinqloq-panel.pinqponq.io" target="_blank" rel="noreferrer">log panel</a>.</p>
       </section>
     </div>
 
