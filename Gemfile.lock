@@ -1,10 +1,10 @@
 GIT
   remote: https://github.com/pinqponq/pinqloq-backend.git
-  revision: 2302191f1d2af41c5566dc24fe310b4c8a03e64f
-  ref: 2302191f1d2af41c5566dc24fe310b4c8a03e64f
+  revision: 085336d6165c0aab7f84d86b78a3f80c06d60851
+  ref: 085336d6165c0aab7f84d86b78a3f80c06d60851
   glob: sdk/pinqloq-ruby/*.gemspec
   specs:
-    pinqloq (1.1.0)
+    pinqloq (1.1.1)
       rack (>= 2.2, < 4.0)
 
 GEM
