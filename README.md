@@ -44,18 +44,9 @@ The `.env` file is ignored by Git and must never be committed. Without it, the a
 
 ## Install and import pinqloq
 
-The `pinqloq` gem is not yet published to RubyGems. This sample pulls it straight from its source repository with Bundler's git `glob` option, which locates the gemspec inside `pinqloq-backend`'s `sdk/pinqloq-ruby` subdirectory:
-
-```ruby
-gem "pinqloq",
-    git: "https://github.com/pinqponq/pinqloq-backend.git",
-    ref: "<commit sha on main>",
-    glob: "sdk/pinqloq-ruby/*.gemspec"
-```
-
-A plain `bundle install` resolves this directly — no vendoring, submodule, or local tarball needed. Bump `ref` to a newer `main` commit and run `bundle install` again to pick up SDK updates.
-
-Once the SDK is published, any Ruby backend will be able to install it directly:
+The `pinqloq` gem is published on RubyGems: [rubygems.org/gems/pinqloq](https://rubygems.org/gems/pinqloq).
+A plain `bundle install` (as above) already resolves it — no vendoring, submodule, or local
+tarball needed. Any other Ruby backend can install it the same way:
 
 ```bash
 gem install pinqloq

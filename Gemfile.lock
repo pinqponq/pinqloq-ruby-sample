@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/pinqponq/pinqloq-backend.git
-  revision: b3688cc0c3bd4e1f056bffab09d58b1eadb0b387
-  ref: b3688cc0c3bd4e1f056bffab09d58b1eadb0b387
-  glob: sdk/pinqloq-ruby/*.gemspec
-  specs:
-    pinqloq (1.1.2)
-      rack (>= 2.2, < 4.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -16,6 +7,8 @@ GEM
     logger (1.7.0)
     mustermann (3.1.1)
     nio4r (2.7.5)
+    pinqloq (1.1.2)
+      rack (>= 2.2, < 4.0)
     puma (6.6.1)
       nio4r (~> 2.0)
     rack (3.2.7)
@@ -57,7 +50,7 @@ PLATFORMS
 
 DEPENDENCIES
   dotenv (~> 3.1)
-  pinqloq!
+  pinqloq (~> 1.1)
   puma (~> 6.4)
   rack-test (~> 2.1)
   rackup (~> 2.1)
