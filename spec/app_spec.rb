@@ -27,18 +27,34 @@ RSpec.describe PinqloqSample::App do
     expect(last_response.body).to include("pinqloq")
   end
 
-  it "reports whether pinqloq is configured" do
+  it "reports the connection state without leaking a secret key" do
     get "/api/config"
 
     expect(last_response.status).to eq(200)
-    expect(JSON.parse(last_response.body)).to include("configured")
+    body = JSON.parse(last_response.body)
+    expect(body).to include("configured")
+    expect(body).not_to include("secretKey")
   end
 
-  it "rejects a manual event when pinqloq is not configured" do
-    skip "pinqloq is configured in this environment" if PinqloqSample::App::PINQLOQ
+  it "rejects a manual event before a session is configured" do
+    skip "a session is configured in this environment" if PinqloqSample::SESSION.configured?
 
     post "/demo/manual/information"
 
     expect(last_response.status).to eq(503)
+  end
+
+  it "rejects a session with missing fields" do
+    post "/api/session", JSON.generate(secretKey: "", httpCollection: "a", manualCollection: "b"),
+         { "CONTENT_TYPE" => "application/json" }
+
+    expect(last_response.status).to eq(400)
+  end
+
+  it "rejects a session whose collections are identical" do
+    post "/api/session", JSON.generate(secretKey: "lgl_x", httpCollection: "same", manualCollection: "same"),
+         { "CONTENT_TYPE" => "application/json" }
+
+    expect(last_response.status).to eq(400)
   end
 end

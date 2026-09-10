@@ -3,7 +3,6 @@ GEM
   specs:
     base64 (0.3.0)
     diff-lcs (1.6.2)
-    dotenv (3.2.0)
     logger (1.7.0)
     mustermann (3.1.1)
     nio4r (2.7.5)
@@ -49,7 +48,6 @@ PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
-  dotenv (~> 3.1)
   pinqloq (~> 1.1)
   puma (~> 6.4)
   rack-test (~> 2.1)
