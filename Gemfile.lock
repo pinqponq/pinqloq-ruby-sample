@@ -6,7 +6,7 @@ GEM
     logger (1.7.0)
     mustermann (3.1.1)
     nio4r (2.7.5)
-    pinqloq (1.1.2)
+    pinqloq (1.2.0)
       rack (>= 2.2, < 4.0)
     puma (6.6.1)
       nio4r (~> 2.0)
@@ -48,7 +48,7 @@ PLATFORMS
   x64-mingw-ucrt
 
 DEPENDENCIES
-  pinqloq (~> 1.1)
+  pinqloq (~> 1.2)
   puma (~> 6.4)
   rack-test (~> 2.1)
   rackup (~> 2.1)

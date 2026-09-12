@@ -157,7 +157,7 @@ module PinqloqSample
 
       level = SUPPORTED_LOG_LEVELS.fetch(params[:level]) { halt 400, JSON.generate(error: "unsupported level") }
 
-      client.logger.enqueue(
+      client.enqueue(
         Pinqloq::LogEntry.new(
           event: "ruby_sample.manual_event",
           device_identifier: DEVICE_IDENTIFIER,
