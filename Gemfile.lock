@@ -6,7 +6,7 @@ GEM
     logger (1.7.0)
     mustermann (3.1.1)
     nio4r (2.7.5)
-    pinqloq (1.2.0)
+    pinqloq (1.2.1)
       rack (>= 2.2, < 4.0)
     puma (6.6.1)
       nio4r (~> 2.0)
