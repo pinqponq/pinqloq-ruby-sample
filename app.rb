@@ -23,8 +23,7 @@ module PinqloqSample
         previous = @client
         @client = Pinqloq.create(
           secret_key: secret_key,
-          api_logs_collection_name: http_collection,
-          device_identifier: DEVICE_IDENTIFIER
+          api_logs_collection_name: http_collection
         )
         @http_collection = http_collection
         @manual_collection = manual_collection
@@ -71,8 +70,8 @@ module PinqloqSample
         @delegate = Pinqloq::Rack::RequestLogging.new(
           @app,
           logger: client.logger,
-          pinqloq_options: client.options,
           exclude_paths: EXCLUDED_PATHS,
+          resolve_device_identifier: ->(request) { request.get_header("HTTP_DEVICE_IDENTIFIER") || DEVICE_IDENTIFIER },
           redact_fields: ["taxNumber"],
           redact_paths: [REDACTION_ENDPOINT_PATH]
         )
